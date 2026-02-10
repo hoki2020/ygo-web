@@ -1,0 +1,24 @@
+services:
+  srvpro:
+    image: mycard/ygopro-server:lite
+    container_name: ygopro-server
+    restart: unless-stopped
+    ports:
+      - "7911:7911"
+      - "7922:7922"
+    volumes:
+      - type: bind
+        source: D:/docker-data/ygopro-server/config
+        target: /ygopro-server/config
+      - type: bind
+        source: D:/docker-data/ygopro-server/expansions
+        target: /ygopro-server/ygopro/expansions
+      - type: bind
+        source: D:/docker-data/ygopro-server/expansions/script
+        target: /ygopro-server/ygopro/script
+      - type: bind
+        source: D:/docker-data/ygopro-server/replays
+        target: /ygopro-server/replays
+      - type: bind
+        source: D:/docker-data/ygopro-server/decks
+        target: /ygopro-server/decks

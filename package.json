@@ -1,0 +1,23 @@
+{
+  "name": "ygo-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run neos:dev",
+    "dev:localdata": "node server/local-static.js",
+    "dev:wsbridge": "node server/ws-tcp-bridge.js",
+    "build": "npm run neos:build",
+    "neos:install": "npm --prefix apps/neos-core install",
+    "neos:dev": "npm --prefix apps/neos-core run dev --",
+    "neos:build": "npm --prefix apps/neos-core run build --",
+    "srvpro:setup": "node server/setup-srvpro-docker.js",
+    "srvpro:sync-data": "node server/sync-srvpro-data.js",
+    "srvpro:up": "npm run srvpro:setup && npm run srvpro:sync-data && node server/docker-srvpro.js up",
+    "srvpro:down": "node server/docker-srvpro.js down",
+    "srvpro:logs": "node server/docker-srvpro.js logs"
+  },
+  "dependencies": {
+    "ws": "^8.19.0"
+  }
+}

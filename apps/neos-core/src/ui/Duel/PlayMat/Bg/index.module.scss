@@ -1,0 +1,243 @@
+.mat-bg {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--row-gap);
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 0.4rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(117, 189, 246, 0.2);
+  background:
+    linear-gradient(180deg, rgba(19, 45, 72, 0.35), rgba(10, 14, 27, 0.3)),
+    radial-gradient(circle at 50% 55%, rgba(45, 194, 255, 0.08), transparent 64%);
+  box-shadow:
+    inset 0 0 55px rgba(0, 134, 255, 0.13),
+    0 0 22px rgba(13, 126, 212, 0.16);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    top: 0.55rem;
+    height: 26%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 84, 110, 0.2), transparent 70%);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.55rem;
+    height: 26%;
+    background: radial-gradient(circle at 50% 50%, rgba(56, 194, 255, 0.2), transparent 70%);
+    pointer-events: none;
+  }
+
+  .row {
+    display: flex;
+    column-gap: var(--col-gap);
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -0.15rem -0.2rem;
+      border: 1px solid rgba(109, 177, 232, 0.14);
+      border-radius: 0.25rem;
+      pointer-events: none;
+    }
+
+    &.opponent {
+      flex-direction: row-reverse;
+
+      &::before {
+        border-color: rgba(242, 124, 141, 0.2);
+        box-shadow: inset 0 0 14px rgba(255, 95, 114, 0.08);
+      }
+    }
+
+    &:not(.opponent)::before {
+      border-color: rgba(105, 197, 255, 0.24);
+      box-shadow: inset 0 0 14px rgba(61, 189, 255, 0.09);
+    }
+  }
+}
+
+.block {
+  height: var(--block-height-m);
+  width: var(--block-width);
+  background:
+    linear-gradient(135deg, rgba(13, 47, 75, 0.55), rgba(13, 22, 40, 0.42));
+  border: 1px solid var(--hf-block-border);
+  border-radius: 0.2rem;
+  clip-path: polygon(
+    0 8px,
+    8px 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px)
+  );
+  backdrop-filter: blur(2px);
+  position: relative;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(160, 227, 255, 0.12), transparent 28%);
+    pointer-events: none;
+  }
+
+  &.extra {
+    margin-inline: calc(var(--block-width) / 2 + var(--col-gap) / 2);
+  }
+  &.szone {
+    height: var(--block-height-s);
+  }
+  &.highlight {
+    border-color: rgba(132, 229, 255, 0.78);
+    background: linear-gradient(135deg, rgba(26, 88, 132, 0.62), rgba(12, 44, 71, 0.58));
+    cursor: pointer;
+    box-shadow:
+      inset 0 0 14px rgba(123, 228, 255, 0.34),
+      0 0 16px rgba(24, 160, 255, 0.28);
+    &:hover {
+      transform: translateZ(2px);
+      box-shadow:
+        inset 0 0 16px rgba(123, 228, 255, 0.5),
+        0 0 24px rgba(24, 160, 255, 0.42);
+    }
+  }
+}
+
+// 下面应该和moveToOutside、moveToGround对应
+.other-blocks {
+  width: 0;
+  height: 0;
+  &.op {
+    transform: rotate(180deg);
+  }
+  position: absolute;
+  --height: var(--card-height-o);
+  --width: calc(var(--height) * var(--card-ratio));
+  --left: calc(
+    var(--col-gap) * 2 + var(--block-width) * 2.5 +
+      var(--block-outside-offset-x) + var(--width) / 2
+  );
+  --top: calc(
+    var(--row-gap) + var(--block-height-m) +
+      (var(--block-height-m) - var(--height)) / 2
+  );
+
+  .banish,
+  .field,
+  .graveyard,
+  .deck,
+  .extra-deck {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: var(--height);
+    width: var(--width);
+    top: var(--top);
+    left: var(--left);
+  }
+  .field {
+    left: calc(-1 * var(--left));
+  }
+  .banish {
+    top: calc(var(--top) - var(--row-gap) - var(--height));
+  }
+  .deck {
+    --left: calc(
+      var(--deck-offset-x) + 2 * (var(--block-width) + var(--col-gap))
+    );
+    left: var(--left);
+    top: calc(
+      var(--deck-offset-y) + 2 * var(--block-height-m) + 2 * var(--row-gap)
+    );
+    transform: translate(-50%, -50%) rotate(calc(-1 * var(--deck-rotate-z)));
+    height: var(--deck-card-height);
+    width: calc(var(--deck-card-height) * var(--card-ratio));
+    &.extra-deck {
+      left: calc(-1 * var(--left));
+      transform: translate(-50%, -50%) rotate(var(--deck-rotate-z));
+    }
+  }
+}
+
+// 被禁用的样式
+.disabled-cross {
+  width: 100%;
+  height: 100%;
+  cursor: not-allowed;
+  background: linear-gradient(
+      to top right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) calc(50% - 1.5px),
+      red 50%,
+      rgba(0, 0, 0, 0) calc(50% + 1.5px),
+      rgba(0, 0, 0, 0) 100%
+    ),
+    linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) calc(50% - 1.5px),
+      red 50%,
+      rgba(0, 0, 0, 0) calc(50% + 1.5px),
+      rgba(0, 0, 0, 0) 100%
+    );
+  display: none;
+}
+
+.disabled-cross.show {
+  display: block;
+}
+
+.block.glowing {
+  --shadow-color: #2ad9ff;
+  box-shadow:
+    0 0 2px 1px rgba(107, 231, 255, 0.8),
+    0 0 21px 2px rgba(0, 179, 255, 0.52),
+    inset 0 0 14px rgba(87, 222, 255, 0.33);
+  background: linear-gradient(135deg, rgba(31, 152, 201, 0.65), rgba(11, 58, 87, 0.58));
+  border-color: rgba(145, 232, 255, 0.95);
+  border-radius: 2px;
+  animation: slot-pulse 1.2s ease-in-out infinite;
+  .triangle {
+    display: none;
+  }
+}
+
+@keyframes slot-pulse {
+  0% {
+    box-shadow:
+      0 0 2px 1px rgba(107, 231, 255, 0.7),
+      0 0 18px 2px rgba(0, 179, 255, 0.4),
+      inset 0 0 12px rgba(87, 222, 255, 0.24);
+  }
+  50% {
+    box-shadow:
+      0 0 3px 1px rgba(158, 241, 255, 0.95),
+      0 0 28px 4px rgba(0, 179, 255, 0.68),
+      inset 0 0 16px rgba(87, 222, 255, 0.4);
+  }
+  100% {
+    box-shadow:
+      0 0 2px 1px rgba(107, 231, 255, 0.7),
+      0 0 18px 2px rgba(0, 179, 255, 0.4),
+      inset 0 0 12px rgba(87, 222, 255, 0.24);
+  }
+}

@@ -1,0 +1,33 @@
+.ygo-card {
+  color: white;
+  aspect-ratio: var(--card-ratio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1.75em;
+  overflow: hidden; //超出的文本隐藏
+  text-overflow: ellipsis; //溢出用省略号显示
+  background-color: #313746;
+  background-image: var(--src);
+  background-size: contain;
+  text-align: center;
+}
+
+.targeted {
+  position: relative;
+  width: 80%;
+  height: auto;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.disabled {
+  position: relative;
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}

@@ -1,0 +1,35 @@
+@use "/src/styles/utils.scss";
+
+.background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  width: 100%;
+  background:
+    radial-gradient(100% 120% at 50% 120%, #0a3554 0%, #050b16 56%, #03060b 100%),
+    linear-gradient(160deg, #081525 0%, #060b16 60%, #0a0611 100%);
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  @include utils.noise-bg;
+}
+
+.inner {
+  transform: translateY(50%);
+  width: 60vw;
+  height: 100vh;
+  background: radial-gradient(rgba(0, 196, 255, 0.58), rgba(8, 16, 39, 0.22));
+  background-size: contain;
+  background-repeat: repeat;
+  filter: blur(520px);
+  transition: 0.5s;
+}
+.opponent .inner {
+  background: radial-gradient(rgba(255, 142, 64, 0.52), rgba(62, 20, 78, 0.28));
+  transform: translateY(-50%);
+  filter: blur(590px);
+  opacity: 0.8;
+}

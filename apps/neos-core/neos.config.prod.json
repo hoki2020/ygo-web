@@ -1,0 +1,66 @@
+{
+  "version": 4962,
+  "servers": [
+    {
+      "name": "local-srvpro-ws",
+      "ip": "ws://127.0.0.1",
+      "port": "7912"
+    },
+    {
+      "name": "koishi",
+      "ip": "koishi.momobako.com",
+      "port": "7211"
+    },
+    {
+      "name": "mycard-athletic",
+      "ip": "tiramisu.moenext.com",
+      "port": "8912"
+    },
+    {
+      "name": "mycard-custom",
+      "ip": "tiramisu.moenext.com",
+      "port": "7912"
+    },
+    {
+      "name": "pre-release",
+      "ip": "koishi.momobako.com",
+      "port": "889"
+    },
+    {
+      "name": "408",
+      "ip": "koishi.momobako.com",
+      "port": "1408"
+    }
+  ],
+  "assetsPath": "/neos-assets",
+  "releaseResource": {
+    "img": "/local-data/pics",
+    "cdb": "/local-data/cards.cdb",
+    "lflist": "/local-data/lflist.conf"
+  },
+  "preReleaseResource": {
+    "img": "/local-data/pics",
+    "cdb": "/local-data/cards.cdb",
+    "lflist": "/local-data/lflist.conf",
+    "config": "/local-data/test-release-v2.json"
+  },
+  "env408Resource": {
+    "lflist": "/local-data/lflist.conf"
+  },
+  "stringsUrl": "/local-data/strings.conf",
+  "replayUrl": "ws://127.0.0.1:7912",
+  "loginUrl": "/local-data/offline/login",
+  "logoutUrl": "/local-data/offline/logout",
+  "profileUrl": "/local-data/offline/profile",
+  "athleticWatchUrl": "ws://127.0.0.1:7912",
+  "entertainWatchUrl": "ws://127.0.0.1:7912",
+  "userApi": "/local-data/offline/users/{username}.json",
+  "mdproServer": "/local-data/offline/mdpro",
+  "agentServer": "/local-data/offline/agent",
+  "startDelay": 1000,
+  "ui": {
+    "hint": {
+      "maxCount": 1
+    }
+  }
+}

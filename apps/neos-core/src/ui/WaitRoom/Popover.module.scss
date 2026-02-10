@@ -1,0 +1,26 @@
+.overlay {
+  :global(.ant-popover-inner) {
+    border: 1px solid rgba(111, 196, 255, 0.62);
+    border-radius: 0.55rem;
+    background:
+      linear-gradient(180deg, rgba(10, 28, 47, 0.96), rgba(8, 14, 26, 0.97)),
+      radial-gradient(circle at 20% 0, rgba(46, 208, 255, 0.15), transparent 45%);
+    box-shadow:
+      inset 0 0 32px rgba(40, 172, 247, 0.14),
+      0 0 30px rgba(20, 130, 216, 0.3);
+  }
+}
+
+.btn {
+  color: #d9f6ff !important;
+  border: 1px solid rgba(118, 206, 255, 0.46) !important;
+  background: linear-gradient(180deg, rgba(23, 86, 132, 0.72), rgba(9, 36, 62, 0.88)) !important;
+  border-radius: 0.35rem !important;
+  clip-path: polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px));
+  box-shadow:
+    inset 0 0 12px rgba(132, 222, 255, 0.2),
+    0 0 14px rgba(43, 173, 247, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--theme-digit-font);
+}

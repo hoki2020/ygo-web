@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("/neos-assets/fonts/Orbitron-wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("/neos-assets/fonts/RobotoCondensed-wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  src: url("/neos-assets/fonts/NotoSerifSC-wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* 默认字体大小，适用于PC端 */
+html {
+  font-size: 16px;
+}
+
+/* 在移动端上设置不同的字体大小 */
+/* iPad */
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 14px;
+  }
+}
+/* Mobile */
+@media screen and (max-width: 1080px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+body {
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background:
+    radial-gradient(110% 80% at 50% 115%, #003341 0%, #06111f 45%, #03060b 100%),
+    linear-gradient(160deg, #0a1926 0%, #05080f 55%, #08050c 100%);
+  display: flex;
+  margin: 0;
+  min-width: 20rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: var(--theme-font);
+  --theme-font: "Roboto Condensed", sans-serif;
+  --theme-digit-font: "Orbitron", sans-serif;
+  --nato-serif-font: "Noto Serif SC", serif;
+  --header-height: 3.5rem;
+  --hf-cyan: #2ad9ff;
+  --hf-cyan-strong: #01b8ff;
+  --hf-amber: #f6d36b;
+  --hf-grid: rgba(63, 145, 210, 0.28);
+  --hf-block-bg: rgba(15, 36, 55, 0.46);
+  --hf-block-border: rgba(127, 202, 255, 0.32);
+  --hf-shadow-cyan: 0 0 28px rgba(0, 188, 255, 0.45);
+  --hf-shadow-gold: 0 0 24px rgba(247, 211, 96, 0.48);
+  #root {
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 50px,
+      rgba(90, 166, 226, 0.07) 50px,
+      rgba(90, 166, 226, 0.07) 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 50px,
+      rgba(90, 166, 226, 0.07) 50px,
+      rgba(90, 166, 226, 0.07) 51px
+    );
+  mask-image: radial-gradient(circle at center, black 25%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at center, black 25%, transparent 85%);
+  opacity: 0.45;
+}
+
+body::after {
+  background: radial-gradient(circle at 50% 38%, rgba(50, 227, 255, 0.11), transparent 48%);
+  animation: hf-atmosphere 5s ease-in-out infinite alternate;
+  opacity: 0.55;
+}
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+  display: block; // 取消默认的4px下边距
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes hf-atmosphere {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.06) translateY(-8px);
+    opacity: 0.62;
+  }
+}

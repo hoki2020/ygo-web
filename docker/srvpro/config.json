@@ -1,0 +1,39 @@
+{
+  "port": 7911,
+  "version": 4962,
+  "alternative_versions": [
+    4945,
+    4962
+  ],
+  "modules": {
+    "mycard": {
+      "enabled": false
+    },
+    "random_duel": {
+      "enabled": false
+    },
+    "tips": {
+      "enabled": false,
+      "get": false
+    },
+    "dialogues": {
+      "enabled": false,
+      "get": false
+    },
+    "challonge": {
+      "enabled": false
+    },
+    "arena_mode": {
+      "enabled": false
+    },
+    "tournament_mode": {
+      "enabled": false
+    },
+    "windbot": {
+      "enabled": false
+    },
+    "cloud_replay": {
+      "enabled": false
+    }
+  }
+}

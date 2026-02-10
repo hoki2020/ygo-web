@@ -1,0 +1,55 @@
+stages:
+  - install
+  - ts_check_lint
+  - test
+  - build
+  - deploy
+
+npm_ci:
+  stage: install
+  tags:
+    - linux
+  script: npm ci
+  artifacts:
+    paths:
+      - node_modules
+
+.build_base:
+  tags:
+    - linux
+  dependencies:
+    - npm_ci
+
+ts_check_lint:
+  dependencies:
+    - npm_ci
+  stage: ts_check_lint
+  tags:
+    - linux
+  script:
+    - npx tsc
+    - npm run lint
+
+npm_build:
+  stage: build
+  image: git-registry.mycard.moe/mycard/docker-runner-base:master-x86
+  tags:
+    - linux
+  script:
+    - cp neos.config.prod.json neos.config.json
+    - npm run build:prod
+  artifacts:
+    paths:
+      - dist
+
+deploy:
+  stage: deploy
+  tags:
+    - linux
+  only:
+    - main
+  dependencies:
+    - npm_build
+  script:
+    - mv neos-assets dist/
+    - aws s3 --endpoint=https://minio.mycard.moe:9000 sync --delete dist/ s3://mycard/neos

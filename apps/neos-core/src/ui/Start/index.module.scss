@@ -1,0 +1,111 @@
+.wrap {
+  position: relative;
+  height: calc(100% - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  position: relative;
+  width: min(92vw, 96rem);
+  height: min(78vh, 52rem);
+  border: 1px solid rgba(113, 203, 255, 0.45);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  clip-path: polygon(0 14px, 14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px));
+  box-shadow:
+    inset 0 0 32px rgba(56, 197, 255, 0.2),
+    0 0 32px rgba(20, 130, 216, 0.34);
+}
+
+.hero {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55) saturate(1.15);
+}
+
+.hero-main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  filter:
+    drop-shadow(0 12px 20px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 18px rgba(130, 221, 255, 0.4));
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.48)),
+    linear-gradient(180deg, rgba(6, 15, 29, 0.15), rgba(8, 14, 26, 0.65));
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+}
+
+.neos-logo {
+  width: 12rem;
+  height: auto;
+}
+
+.title {
+  color: #e3f8ff;
+  font-family: var(--theme-digit-font);
+  letter-spacing: 0.15em;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  text-shadow: 0 0 12px rgba(82, 202, 255, 0.58);
+}
+
+.actions {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.menu-btn {
+  min-width: 18rem;
+  justify-content: space-between;
+  padding-inline: 1.1rem;
+}
+
+@media screen and (max-width: 860px) {
+  .main {
+    width: 96vw;
+    height: min(74vh, 44rem);
+  }
+
+  .hero-main {
+    width: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  .menu-btn {
+    min-width: 14.8rem;
+  }
+}

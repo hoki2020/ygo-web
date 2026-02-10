@@ -1,0 +1,42 @@
+.root {
+  :global(.ant-drawer-header) {
+    display: none;
+  }
+}
+
+.drawer {
+  :global(.ant-drawer-body) {
+    padding: 0.55rem 0.5rem 0.5rem;
+    overflow-y: auto;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-height: 100%;
+}
+
+.list {
+  width: 100%;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  padding-top: 0.35rem;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 20, 35, 0),
+    rgba(7, 20, 35, 0.86) 34%,
+    rgba(7, 20, 35, 0.96)
+  );
+}
+
+.collapseBtn {
+  width: 100%;
+  min-height: 1.9rem;
+  font-size: 0.8rem;
+}

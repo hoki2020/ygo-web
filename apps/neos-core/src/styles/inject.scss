@@ -1,0 +1,218 @@
+// 全局修改模块内的样式，如 antd 样式、OverlayScrollbars 样式
+.ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 !important;
+  border: 1px solid #00e5ff !important;
+  color: #ecfaff !important;
+  background: rgba(6, 13, 24, 0.72) !important;
+  backdrop-filter: blur(8px);
+  clip-path: polygon(0 7px, 7px 0, calc(100% - 7px) 0, 100% 7px, 100% calc(100% - 7px), calc(100% - 7px) 100%, 7px 100%, 0 calc(100% - 7px));
+  box-shadow:
+    inset 0 0 12px rgba(0, 229, 255, 0.18),
+    0 0 14px rgba(0, 229, 255, 0.3);
+  font-family: var(--theme-digit-font);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 160ms ease;
+}
+
+.ant-btn .anticon {
+  color: #6deeff;
+}
+
+.ant-btn:hover {
+  border-color: #8ef6ff !important;
+  color: #ffffff !important;
+  background: rgba(10, 28, 45, 0.8) !important;
+  box-shadow:
+    inset 0 0 16px rgba(142, 246, 255, 0.28),
+    0 0 24px rgba(91, 235, 255, 0.46);
+}
+
+.ant-btn:active {
+  transform: translateY(1px);
+}
+
+.ant-btn.ant-btn-primary {
+  border-color: #00e5ff !important;
+  background: linear-gradient(180deg, rgba(17, 131, 164, 0.86), rgba(8, 45, 74, 0.92)) !important;
+}
+
+.ant-btn.ant-btn-dangerous,
+.ant-btn.ant-btn-dangerous.ant-btn-primary,
+.ant-btn.btn-danger,
+.ant-btn.btn-active {
+  border-color: #ff1100 !important;
+  color: #ffd6d3 !important;
+  background: linear-gradient(180deg, rgba(102, 18, 18, 0.84), rgba(48, 8, 8, 0.9)) !important;
+  box-shadow:
+    inset 0 0 12px rgba(255, 66, 52, 0.24),
+    0 0 18px rgba(255, 37, 23, 0.54);
+  animation: neos-btn-breath-red 2.2s ease-in-out infinite;
+}
+
+.ant-btn.ant-btn-dangerous .anticon,
+.ant-btn.btn-danger .anticon,
+.ant-btn.btn-active .anticon {
+  color: #ff3a2e;
+}
+
+.ant-btn:disabled,
+.ant-btn.ant-btn-disabled {
+  border-color: rgba(118, 152, 170, 0.35) !important;
+  color: rgba(191, 218, 228, 0.45) !important;
+  background: rgba(8, 18, 31, 0.56) !important;
+  box-shadow: none !important;
+  animation: none !important;
+}
+
+@keyframes neos-btn-breath-red {
+  0% {
+    box-shadow:
+      inset 0 0 10px rgba(255, 66, 52, 0.2),
+      0 0 10px rgba(255, 37, 23, 0.36);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 16px rgba(255, 66, 52, 0.34),
+      0 0 26px rgba(255, 37, 23, 0.72);
+  }
+  100% {
+    box-shadow:
+      inset 0 0 10px rgba(255, 66, 52, 0.2),
+      0 0 10px rgba(255, 37, 23, 0.36);
+  }
+}
+
+// 点击按钮产生的波浪扩散效果
+.ant-wave {
+  color: hsla(0, 0%, 100%, 0.3);
+}
+
+// OverlayScrollbars 样式
+.os-theme-light {
+  --os-handle-bg: rgba(255, 255, 255, 0.22);
+  --os-handle-bg-hover: rgba(255, 255, 255, 0.44);
+  --os-handle-bg-active: rgba(255, 255, 255, 0.66);
+}
+
+.ant-app {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.ant-modal-confirm-content {
+  max-width: 100% !important;
+  width: 100%;
+}
+
+.ant-select-dropdown {
+  backdrop-filter: blur(10px);
+}
+
+.ant-modal-confirm .ant-modal-confirm-btns {
+  display: flex;
+  justify-content: end;
+}
+
+/* Neos tactical-tech panel system (Modal + Drawer) */
+:root {
+  --neos-panel-accent: #00f2ff;
+  --neos-panel-accent-rgb: 0, 242, 255;
+  --neos-panel-bg: rgba(0, 10, 30, 0.8);
+}
+
+.neos-panel-danger {
+  --neos-panel-accent: #ff0000;
+  --neos-panel-accent-rgb: 255, 0, 0;
+}
+
+.ant-modal .ant-modal-content,
+.ant-drawer .ant-drawer-content {
+  position: relative;
+  background: var(--neos-panel-bg) !important;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(var(--neos-panel-accent-rgb), 0.85);
+  border-radius: 0.55rem;
+  clip-path: polygon(
+    0 12px,
+    12px 0,
+    calc(100% - 12px) 0,
+    100% 12px,
+    100% calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    12px 100%,
+    0 calc(100% - 12px)
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--neos-panel-accent-rgb), 0.2),
+    inset 0 0 28px rgba(var(--neos-panel-accent-rgb), 0.16),
+    0 0 24px rgba(var(--neos-panel-accent-rgb), 0.28);
+}
+
+.ant-modal .ant-modal-content::before,
+.ant-drawer .ant-drawer-content::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  border: 1px dashed rgba(var(--neos-panel-accent-rgb), 0.34);
+  border-radius: 0.4rem;
+  clip-path: polygon(
+    0 8px,
+    8px 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px)
+  );
+}
+
+.ant-modal .ant-modal-content::after,
+.ant-drawer .ant-drawer-content::after {
+  content: "";
+  position: absolute;
+  right: -9px;
+  top: 18%;
+  width: 18px;
+  height: 72px;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent, rgba(var(--neos-panel-accent-rgb), 0.42), transparent),
+    linear-gradient(135deg, transparent 48%, rgba(var(--neos-panel-accent-rgb), 0.5) 50%, transparent 52%);
+  opacity: 0.7;
+  filter: drop-shadow(0 0 8px rgba(var(--neos-panel-accent-rgb), 0.42));
+}
+
+.ant-drawer .ant-drawer-content-wrapper {
+  max-width: min(26vw, 30rem);
+}
+
+.ant-modal .ant-modal-header,
+.ant-drawer .ant-drawer-header {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(var(--neos-panel-accent-rgb), 0.36) !important;
+}
+
+.ant-modal .ant-modal-title,
+.ant-drawer .ant-drawer-title {
+  color: #dff8ff !important;
+  font-family: var(--theme-digit-font);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ant-modal .ant-modal-close,
+.ant-drawer .ant-drawer-close {
+  color: rgba(var(--neos-panel-accent-rgb), 0.88) !important;
+}
+
+.ant-modal .ant-modal-body,
+.ant-drawer .ant-drawer-body {
+  color: #d8edf7 !important;
+}

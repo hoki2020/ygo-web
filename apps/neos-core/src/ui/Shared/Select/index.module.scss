@@ -1,0 +1,50 @@
+.custom-select {
+  display: flex;
+  align-items: center;
+  .prefix {
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 1rem;
+    border: 1px solid rgba(116, 205, 255, 0.46);
+    border-radius: 6px;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background: linear-gradient(180deg, rgba(20, 66, 102, 0.7), rgba(9, 29, 49, 0.86));
+    color: #d8f5ff;
+    letter-spacing: 0.05em;
+  }
+
+  .select :global(.ant-select-selector) {
+    height: 2rem !important;
+    min-height: 2rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-color: rgba(116, 205, 255, 0.46) !important;
+    background: linear-gradient(180deg, rgba(20, 66, 102, 0.7), rgba(9, 29, 49, 0.86)) !important;
+    color: #d8f5ff !important;
+  }
+
+  .select :global(.ant-select-selection-item),
+  .select :global(.ant-select-selection-placeholder) {
+    line-height: calc(2rem - 2px) !important;
+  }
+
+  .select :global(.ant-select-arrow) {
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    transform: none;
+  }
+
+  .select :global(.ant-select-selection-item) {
+    color: #d8f5ff;
+  }
+}

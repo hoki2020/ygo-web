@@ -1,0 +1,137 @@
+.modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0 !important;
+  bottom: 0 !important;
+  margin: auto;
+  height: fit-content;
+  transition: 0.2s;
+
+  :global(.ant-modal-content) {
+    border: 1px solid rgba(111, 196, 255, 0.62);
+    border-radius: 0.55rem;
+    background:
+      linear-gradient(180deg, rgba(10, 28, 47, 0.96), rgba(8, 14, 26, 0.97)),
+      radial-gradient(circle at 20% 0, rgba(46, 208, 255, 0.15), transparent 45%);
+    box-shadow:
+      inset 0 0 40px rgba(40, 172, 247, 0.14),
+      0 0 38px rgba(20, 130, 216, 0.32),
+      0 0 0 1px rgba(208, 243, 255, 0.14);
+    clip-path: polygon(
+      0 14px,
+      14px 0,
+      calc(100% - 14px) 0,
+      100% 14px,
+      100% calc(100% - 14px),
+      calc(100% - 14px) 100%,
+      14px 100%,
+      0 calc(100% - 14px)
+    );
+  }
+
+  :global(.ant-modal-header) {
+    background: transparent;
+    border-bottom: 1px solid rgba(106, 186, 244, 0.35);
+  }
+
+  :global(.ant-modal-title) {
+    color: #d9f6ff;
+    font-family: var(--theme-digit-font);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  :global(.ant-modal-close) {
+    color: #8edfff;
+  }
+
+  :global(.ant-modal-body) {
+    color: #d4edf9;
+  }
+
+  :global(.ant-modal-footer) {
+    border-top: 1px solid rgba(106, 186, 244, 0.25);
+  }
+
+  :global(.ant-btn) {
+    color: #d9f6ff;
+    border: 1px solid rgba(118, 206, 255, 0.46);
+    background: linear-gradient(180deg, rgba(23, 86, 132, 0.72), rgba(9, 36, 62, 0.88));
+    border-radius: 0.35rem;
+    clip-path: polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px));
+    box-shadow:
+      inset 0 0 12px rgba(132, 222, 255, 0.2),
+      0 0 14px rgba(43, 173, 247, 0.25);
+    transition: all 160ms ease;
+    font-family: var(--theme-digit-font);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  :global(.ant-btn:hover) {
+    color: #f1fdff !important;
+    border-color: rgba(168, 234, 255, 0.9) !important;
+    background: linear-gradient(180deg, rgba(31, 124, 188, 0.8), rgba(12, 54, 88, 0.92)) !important;
+    box-shadow:
+      inset 0 0 16px rgba(169, 235, 255, 0.28),
+      0 0 22px rgba(60, 198, 255, 0.42) !important;
+    transform: translateY(-1px);
+  }
+
+  :global(.ant-btn-primary) {
+    border-color: rgba(124, 223, 255, 0.95);
+    background: linear-gradient(180deg, rgba(34, 160, 220, 0.94), rgba(18, 87, 146, 0.96));
+    box-shadow:
+      inset 0 0 16px rgba(205, 246, 255, 0.3),
+      0 0 24px rgba(71, 198, 255, 0.5);
+  }
+
+  :global(.ant-btn-dangerous),
+  :global(.ant-btn-dangerous.ant-btn-primary) {
+    border-color: rgba(255, 138, 156, 0.95) !important;
+    color: #ffd4dc !important;
+    background: linear-gradient(180deg, rgba(169, 42, 73, 0.94), rgba(96, 19, 39, 0.94)) !important;
+    box-shadow:
+      inset 0 0 16px rgba(255, 190, 202, 0.2),
+      0 0 20px rgba(255, 106, 132, 0.38) !important;
+  }
+
+  :global(.ant-btn-default) {
+    border-color: rgba(139, 224, 255, 0.45);
+  }
+
+  :global(.ant-modal-footer .ant-btn + .ant-btn) {
+    margin-inline-start: 0.55rem;
+  }
+}
+
+.mini {
+  top: 100% !important;
+  bottom: 0 !important;
+  transform: translateY(calc(50% - 66px));
+
+  :global(.ant-modal-body) {
+    animation: fadeout 0.1s forwards;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.wrap {
+  pointer-events: none;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
