@@ -9,6 +9,10 @@
 - Browser bridge: `server/ws-tcp-bridge.js` (`7912/ws` -> `7911/tcp`)
 
 ---
+<img width="2549" height="1266" alt="首页" src="https://github.com/user-attachments/assets/931e912b-c83d-492f-a340-ef66c86ca14f" />
+<img width="2549" height="1266" alt="卡组编辑" src="https://github.com/user-attachments/assets/03c13c75-3aea-4362-b847-c52cb4e3cc45" />
+<img width="2549" height="1266" alt="对战房间" src="https://github.com/user-attachments/assets/6d70cd18-9685-49b0-bc9c-cc85354ee473" />
+<img width="2549" height="1266" alt="对战" src="https://github.com/user-attachments/assets/7641eee3-48e0-4751-b108-fa73840940a3" />
 
 ## 中文
 
@@ -125,7 +129,10 @@ npm run srvpro:logs
 - Frontend: `apps/neos-core` (based on `DarkNeos/neos-ts`)
 - Local duel server: SRVPro Docker (`7911/tcp`)
 - Browser bridge: `server/ws-tcp-bridge.js` (`7912/ws` -> `7911/tcp`)
-
+<img width="2549" height="1266" alt="首页" src="https://github.com/user-attachments/assets/931e912b-c83d-492f-a340-ef66c86ca14f" />
+<img width="2549" height="1266" alt="卡组编辑" src="https://github.com/user-attachments/assets/03c13c75-3aea-4362-b847-c52cb4e3cc45" />
+<img width="2549" height="1266" alt="对战房间" src="https://github.com/user-attachments/assets/6d70cd18-9685-49b0-bc9c-cc85354ee473" />
+<img width="2549" height="1266" alt="对战" src="https://github.com/user-attachments/assets/7641eee3-48e0-4751-b108-fa73840940a3" />
 ### Features
 
 - Web duel experience with a frontend UI refactor based on upstream open-source projects
